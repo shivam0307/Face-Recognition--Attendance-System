@@ -191,6 +191,28 @@ The while loop is created to run the webcam. But before the while loop we have t
 ### Step 4: Marking Attendance
 Lastly we are going to add the automated attendance code. We will start by writing a function that requires only one input which is the name of the user. First we open our Attendance file which is in csv format. Then we read all the lines and iterate through each line using a for loop. Next we can split using comma ‘,’. This will allow us to get the first element which is the name of the user. If the user in the camera already has an entry in the file then nothing will happen. On the other hand if the user is new then the name of the user along with the current time stamp will be stored. We can use the datetime class in the date time package to get the current time.
 
+## Results Obtained
+
+https://drive.google.com/open?id=1Pr9jMLD-2BYENbe_t-2btUgb9G2cYe-O
+
+https://drive.google.com/open?id=1Ut4Jxw5xZrg4REHKuOZMiK96mwgyilOI
+
+https://drive.google.com/open?id=1GAHlRr9J2YYbnl6KVuQv7jSYkyeoeYgh
+
+https://drive.google.com/open?id=1AO1nANSWt_68OiUGeW209TBup9O3Qexs
+
+https://drive.google.com/open?id=1PCEFNe576go8v-rgLLdPiN24w68Kee91
+
+https://drive.google.com/open?id=1qNOCGsXUALdj7WNmEtgRM6uJ1k7k23lY
+
+### Auto Update in Database:
+
+https://drive.google.com/open?id=1BMlvzuECEk_UYGZzS1Ipb29ELX9Lz4oA
+
+### Excel Record for Attendance
+
+https://drive.google.com/open?id=1MoqRPI1BS-DZQkRhYRitLiCI6iJTYacL
+
 # References
 
 1. [Machine Learning is Fun! Part 4: Modern Face Recognition with Deep Learning, by Adam Geitgey](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
