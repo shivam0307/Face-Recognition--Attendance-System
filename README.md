@@ -1,7 +1,7 @@
 # Face-Recognition-Attendance-System
-Application of Deep Neural Networks ( CNN Based dlib and OpenCV modules ) in recognizing Faces with high accuracy and marking Attendance.
+This Project is an Application of Deep Neural Networks ( CNN Based dlib and OpenCV modules ) in recognizing Faces with high accuracy and marking Attendance. We will explore all the important concepts required for this projects and use those concepts to execute our System.
 
-Have you noticed that Facebook has developed an uncanny ability to recognize your friends in your photographs? In the old days, Facebook used to make you to tag your friends in photos by clicking on them and typing in their name. Now as soon as you upload a photo, Facebook tags everyone for you like magic:
+But before that...Have you noticed that Facebook has developed an uncanny ability to recognize your friends in your photographs? In the old days, Facebook used to make you to tag your friends in photos by clicking on them and typing in their name. Now as soon as you upload a photo, Facebook tags everyone for you like magic:
 This technology is called face recognition. Facebook’s algorithms are able to recognize your friends’ faces after they have been tagged only a few times.
 
 This technology is called face recognition. Facebook’s algorithms are able to recognize your friends’ faces after they have been tagged only a few times. It’s pretty amazing technology — Facebook can recognize faces with 98% accuracy which is pretty much as good as humans can do!
@@ -98,6 +98,8 @@ The HOG + Linear SVM face detector will be faster than the MMOD CNN face detecto
 For more robust face detection, use dlib’s MMOD CNN face detector. This model requires significantly more computation (and is thus slower) but is much more accurate and robust to changes in face rotation and viewing angle.
 
 Furthermore, if you have access to a GPU, you can run dlib’s MMOD CNN face detector on it, resulting in real-time face detection speed. The MMOD CNN face detector combined with a GPU is a match made in heaven — you get both the accuracy of a deep neural network along with the speed of a less computationally expensive model.
+
+
 
 
 
