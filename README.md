@@ -35,6 +35,9 @@ Deep neural networks, deep belief networks and recurrent neural networks have be
 
 ![image](https://user-images.githubusercontent.com/107324616/176886618-87bd8e37-5db6-49bb-871a-45700e3e1511.png)
 
+![image](https://user-images.githubusercontent.com/107324616/176887400-13228a4d-1ebc-42cd-930b-903d5ca08580.png)
+
+
 
 
 
