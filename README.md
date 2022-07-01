@@ -13,3 +13,4 @@ Face recognition is the task of identifying an already detected object as a know
 
 ## Different Methods for Face Recognition
 
+![image](https://user-images.githubusercontent.com/107324616/176885598-76f55146-baa7-475b-a873-3b3a869fc184.png)
