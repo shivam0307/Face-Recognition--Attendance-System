@@ -7,5 +7,5 @@ This technology is called face recognition. Facebook’s algorithms are able to 
 ## What is Face Recognition?
 Face recognition is the task of identifying an already detected object as a known or unknown face. Often the problem of face recognition is confused with the problem of face detection. Face Recognition on the other hand is to decide if the "face" is someone known, or unknown, using for this purpose a database of faces in order to validate this input face.
 
-![image](https://user-images.githubusercontent.com/107324616/176882197-731d21b8-3231-4587-a708-1dbeb7e80626.png)
+![image](https://user-images.githubusercontent.com/107324616/176882197-731d21b8-3231-4587-a708-1dbeb7e80626.png)'/n'
 ![image](https://user-images.githubusercontent.com/107324616/176882314-86e1d39f-201b-43f6-8344-fa824facce9b.png)
