@@ -193,6 +193,8 @@ Lastly we are going to add the automated attendance code. We will start by writi
 
 ## Results Obtained
 
+[Dataset Used for training](https://drive.google.com/open?id=1MoqRPI1BS-DZQkRhYRitLiCI6iJTYacL)
+
 https://drive.google.com/open?id=1Pr9jMLD-2BYENbe_t-2btUgb9G2cYe-O
 
 https://drive.google.com/open?id=1Ut4Jxw5xZrg4REHKuOZMiK96mwgyilOI
@@ -207,11 +209,11 @@ https://drive.google.com/open?id=1qNOCGsXUALdj7WNmEtgRM6uJ1k7k23lY
 
 ### Auto Update in Database:
 
-https://drive.google.com/open?id=1BMlvzuECEk_UYGZzS1Ipb29ELX9Lz4oA
+[Screenshot of CSV File](https://drive.google.com/open?id=1BMlvzuECEk_UYGZzS1Ipb29ELX9Lz4oA)
 
 ### Excel Record for Attendance
 
-https://drive.google.com/open?id=1MoqRPI1BS-DZQkRhYRitLiCI6iJTYacL
+[Screenshot of Excel Record](https://drive.google.com/open?id=1MoqRPI1BS-DZQkRhYRitLiCI6iJTYacL)
 
 # References
 
