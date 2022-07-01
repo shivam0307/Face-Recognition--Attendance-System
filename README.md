@@ -167,7 +167,7 @@ All we need to do is train a classifier that can take in the measurements from a
 
 ## Required Dependencies
 
-1. numpy
+1. numpy https://github.com/numpy/numpy
 2. OpenCV
 3. cmake
 4. dlib
