@@ -82,6 +82,22 @@ A ConvNet is able to successfully capture the Spatial and Temporal dependencies 
 
 ![image](https://user-images.githubusercontent.com/107324616/176892724-f5f394e3-2b59-4ff3-93ab-d2896a4c618c.png)
 
+## dlib Library
+
+The dlib library is arguably one of the most utilized packages for face recognition. A Python package appropriately named face_recognition wraps dlib’s face recognition functions into a simple, easy to use API. Dlib is an open source library of machine learning, which contains many algorithms of machine learning and is very convenient to use.
+
+This includes two face detection methods built into the library:
+
+1. A HOG + Linear SVM face detector that is accurate and computationally efficient. (Applies dlib’s HOG + Linear SVM face detector)
+2. A Max-Margin (MMOD) CNN face detector that is both highly accurate and very robust, capable of detecting faces from varying viewing angles, lighting conditions, and occlusion. (Utilizes dlib’s MMOD CNN face detector)
+
+### Which method should I choose?
+
+The HOG + Linear SVM face detector will be faster than the MMOD CNN face detector but will also be less accurate as HOG + Linear SVM does not tolerate changes in the viewing angle rotation.
+
+For more robust face detection, use dlib’s MMOD CNN face detector. This model requires significantly more computation (and is thus slower) but is much more accurate and robust to changes in face rotation and viewing angle.
+
+Furthermore, if you have access to a GPU, you can run dlib’s MMOD CNN face detector on it, resulting in real-time face detection speed. The MMOD CNN face detector combined with a GPU is a match made in heaven — you get both the accuracy of a deep neural network along with the speed of a less computationally expensive model.
 
 
 
