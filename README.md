@@ -88,7 +88,7 @@ The dlib library is arguably one of the most utilized packages for face recognit
 
 This includes two face detection methods built into the library:
 
-1. A HOG + Linear SVM face detector that is accurate and computationally efficient. (Applies dlib’s HOG + Linear SVM face detector)
+1. A HOG(Histogram of Oriented Gradients) + Linear SVM face detector that is accurate and computationally efficient. (Applies dlib’s HOG + Linear SVM face detector)
 2. A Max-Margin (MMOD) CNN face detector that is both highly accurate and very robust, capable of detecting faces from varying viewing angles, lighting conditions, and occlusion. (Utilizes dlib’s MMOD CNN face detector)
 
 ### Which method should I choose?
@@ -99,6 +99,23 @@ For more robust face detection, use dlib’s MMOD CNN face detector. This model 
 
 Furthermore, if you have access to a GPU, you can run dlib’s MMOD CNN face detector on it, resulting in real-time face detection speed. The MMOD CNN face detector combined with a GPU is a match made in heaven — you get both the accuracy of a deep neural network along with the speed of a less computationally expensive model.
 
+## Finding all Faces
+
+To find faces in an image, we’ll start by making our image black and white because we don’t need color data to find faces. Then we’ll look at every single pixel in our image one at a time. For every single pixel, we want to look at the pixels that directly surrounding it. Our goal is to figure out how dark the current pixel is compared to the pixels directly surrounding it. Then we want to draw an arrow showing in which direction the image is getting darker. If you repeat that process for every single pixel in the image, you end up with every pixel being replaced by an arrow. These arrows are called **gradients** and they show the flow from light to dark across the entire image.
+
+This might seem like a random thing to do, but there’s a really good reason for replacing the pixels with gradients. If we analyze pixels directly, really dark images and really light images of the same person will have totally different pixel values. But by only considering the direction that brightness changes, both really dark images and really bright images will end up with the same exact representation. That makes the problem a lot easier to solve!
+
+But saving the gradient for every single pixel gives us way too much detail. We end up missing the forest for the trees. It would be better if we could just see the basic flow of lightness/darkness at a higher level so we could see the basic pattern of the image.
+
+![image](https://user-images.githubusercontent.com/107324616/176897297-ef387c14-388b-4a5a-b1d9-ecc5107180f2.png)
+
+
+To do this, we’ll break up the image into small squares of 16x16 pixels each. In each square, we’ll count up how many gradients point in each major direction (how many point up, point up-right, point right, etc…). Then we’ll replace that square in the image with the arrow directions that were the strongest.
+
+The end result is we turn the original image into a very simple representation that captures the basic structure of a face in a simple way.
+
+## 
+
 ## Implication Steps
 
 1. First, look at a picture and find all the faces in it
@@ -106,8 +123,33 @@ Furthermore, if you have access to a GPU, you can run dlib’s MMOD CNN face det
 3. Third, be able to pick out unique features of the face that you can use to tell it apart from other people— like how big the eyes are, how long the face is, etc.
 4. Finally, compare the unique features of that face to all the people you already know to determine the person’s name.
 
+## Required Dependencies
+
+1. numpy
+2. OpenCV
+3. cmake
+4. dlib
+5. face_recognition
+
+## Working of the System
+
+### Step 1: Importing Images
+As we have imported before we can use the same face_recognition.load_image_file() function to import our images. But when we have multiple images, importing them individually can become messy. Therefore we will write a script to import all images in a given folder at once. For this we will need the os library so we will import that first. We will store all the images in one list and their names in another.
+
+### Step 2: Compute Encodings
+Now that we have a list of images we can iterate through those and create a corresponding encoded list for known faces. To do this we will create a function. As earlier we will first convert it into RGB and then find its encoding using the face_encodings( ) function. Then we will append each encoding to our list. 
+Now we can simply call the function with the images list as the input arguments.
 
 
+### Step 3: The While loop
+The while loop is created to run the webcam. But before the while loop we have to create a video capture object so that we can grab frames from the webcam. 
+1. First we will read the image from the webcam and then resize it to quarter the size. This is done to increase the speed of the system. Even though the image being used is 1/4 th of the original, we will still use the original size while displaying. Next we will convert it to RGB.
+2. Once we have the webcam frame we will find all the faces in our image. The face_locations function is used for this purpose. Later we will find the face_encodings as well.
+3.  Now we can match the current face encodings to our known faces encoding list to find the matches. We will also compute the distance. This is done to find the best match in case more than one face is detected at a time. Once we have the list of face distances we can find the minimum one, as this would be the best match. Now based on the index value we can determine the name of the person and display it on the original Image.
+
+
+### Step 4: Marking Attendance
+Lastly we are going to add the automated attendance code. We will start by writing a function that requires only one input which is the name of the user. First we open our Attendance file which is in csv format. Then we read all the lines and iterate through each line using a for loop. Next we can split using comma ‘,’. This will allow us to get the first element which is the name of the user. If the user in the camera already has an entry in the file then nothing will happen. On the other hand if the user is new then the name of the user along with the current time stamp will be stored. We can use the datetime class in the date time package to get the current time.
 
 
 
