@@ -168,10 +168,10 @@ All we need to do is train a classifier that can take in the measurements from a
 ## Required Dependencies
 
 1. [numpy](https://github.com/numpy/numpy)
-2. OpenCV
-3. cmake
-4. dlib
-5. face_recognition
+2. [OpenCV](https://github.com/opencv/opencv)
+3. [cmake](https://github.com/Kitware/CMake)
+4. [dlib](https://github.com/davisking/dlib)
+5. [face_recognition](https://github.com/ageitgey/face_recognition)
 
 ## Working of the System
 
@@ -190,6 +190,15 @@ The while loop is created to run the webcam. But before the while loop we have t
 
 ### Step 4: Marking Attendance
 Lastly we are going to add the automated attendance code. We will start by writing a function that requires only one input which is the name of the user. First we open our Attendance file which is in csv format. Then we read all the lines and iterate through each line using a for loop. Next we can split using comma ‘,’. This will allow us to get the first element which is the name of the user. If the user in the camera already has an entry in the file then nothing will happen. On the other hand if the user is new then the name of the user along with the current time stamp will be stored. We can use the datetime class in the date time package to get the current time.
+
+# References
+
+1. [Machine Learning is Fun! Part 4: Modern Face Recognition with Deep Learning, by Adam Geitgey](https://medium.com/@ageitgey/machine-learning-is-fun-part-4-modern-face-recognition-with-deep-learning-c3cffc121d78)
+2. [Face recognition with OpenCV, Python, and deep learning, by Adrian Rosebrock](https://pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/)
+3. [Face detection with dlib (HOG and CNN), by Adrian Rosebrock](https://pyimagesearch.com/2021/04/19/face-detection-with-dlib-hog-and-cnn/)
+4. [A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way, by Sumit Saha](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
+5. [A Face Recognition Library using Convolutional Neural Networks, Paperwork by Leonardo Blanger (URI University, Erechim - Brazil) and Alison R. Panisson ( Pontifical University of Rio Grande do Sul, Porto Alegre - Brazil)
+6. [An improved face recognition algorithm and its application in attendance management system, by Serign Modou Bah and Fang Ming](https://www.sciencedirect.com/science/article/pii/S2590005619300141#!)
 
 
 
