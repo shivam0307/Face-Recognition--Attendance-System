@@ -37,17 +37,52 @@ Deep neural networks, deep belief networks and recurrent neural networks have be
 
 ![image](https://user-images.githubusercontent.com/107324616/176886618-87bd8e37-5db6-49bb-871a-45700e3e1511.png)
 
-**1. ANN**
+**1. Artificial Neural Network (ANN)**
 
 ![image](https://user-images.githubusercontent.com/107324616/176887400-13228a4d-1ebc-42cd-930b-903d5ca08580.png)
 
-**2. CNN**
+**2. Convolutional Neural Networkss(CNN)**
 
 ![image](https://user-images.githubusercontent.com/107324616/176887906-6f4a4552-473e-41b8-9375-1ddd3507496c.png)
 
-**3. RNN**
+**3. Recurrent Neural Network (RNN)**
 
 ![image](https://user-images.githubusercontent.com/107324616/176888371-f3dd94bf-6593-4876-bc0a-ff4d8db8db76.png)
+
+## Convolutional Neural Networks (Structure & Working)
+
+A Convolutional Neural Network (ConvNet/CNN) is a Deep Learning algorithm which can take in an input image, assign importance (learnable weights and biases) to various aspects/objects in the image and be able to differentiate one from the other. The pre-processing required in a ConvNet is much lower as compared to other classification algorithms. While in primitive methods filters are hand-engineered, with enough training, ConvNets have the ability to learn these filters/characteristics.
+
+The architecture of a ConvNet is analogous to that of the connectivity pattern of Neurons in the Human Brain and was inspired by the organization of the Visual Cortex. Individual neurons respond to stimuli only in a restricted region of the visual field known as the Receptive Field. A collection of such fields overlap to cover the entire visual area.
+
+### Why CNN?
+
+![image](https://user-images.githubusercontent.com/107324616/176891095-c2a65c87-1d85-445c-8d7e-da74a28b0fda.png)
+
+A ConvNet is able to successfully capture the Spatial and Temporal dependencies in an image through the application of relevant filters.  The role of the ConvNet is to reduce the images into a form which is easier to process, without losing features which are critical for getting a good prediction.
+
+![image](https://user-images.githubusercontent.com/107324616/176891756-d1abbaed-d8b4-418d-951d-adbe570b40ba.png)
+
+### Some Important Standard CNNs
+
+**1. LeNet-5**
+
+![image](https://user-images.githubusercontent.com/107324616/176892127-04b7eb5c-7535-48d1-93f2-e04dfbf03ad7.png)
+
+**2. AlexNet**
+
+![image](https://user-images.githubusercontent.com/107324616/176892274-2b344f4c-1f3b-4536-978b-2e339f59faba.png)
+
+**3. VGG-16**
+
+![image](https://user-images.githubusercontent.com/107324616/176892417-f45aaeda-4d0e-49eb-a7b1-dacdececc58f.png)
+
+**4. ResNet**
+
+![image](https://user-images.githubusercontent.com/107324616/176892724-f5f394e3-2b59-4ff3-93ab-d2896a4c618c.png)
+
+
+
 
 
 
