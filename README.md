@@ -114,14 +114,56 @@ To do this, we’ll break up the image into small squares of 16x16 pixels each. 
 
 The end result is we turn the original image into a very simple representation that captures the basic structure of a face in a simple way.
 
-## 
+## Posing and Projecting Faces
 
-## Implication Steps
+To do this, we are going to use an algorithm called face landmark estimation. The basic idea is we will come up with 68 specific points (called landmarks) that exist on every face — the top of the chin, the outside edge of each eye, the inner edge of each eyebrow, etc. Then we will train a machine learning algorithm to be able to find these 68 specific points on any face.
 
-1. First, look at a picture and find all the faces in it
-2. Second, focus on each face and be able to understand that even if a face is turned in a weird direction or in bad lighting, it is still the same person.
-3. Third, be able to pick out unique features of the face that you can use to tell it apart from other people— like how big the eyes are, how long the face is, etc.
-4. Finally, compare the unique features of that face to all the people you already know to determine the person’s name.
+![image](https://user-images.githubusercontent.com/107324616/176899120-a0733703-20c7-41e0-b861-4d29385395e2.png)
+
+
+Now that we know were the eyes and mouth are, we’ll simply rotate, scale and shear the image so that the eyes and mouth are centered as best as possible. We won’t do any fancy 3d warps because that would introduce distortions into the image. We are only going to use basic image transformations like rotation and scale that preserve parallel lines (called Affine Transformations).
+
+![image](https://user-images.githubusercontent.com/107324616/176899151-f9cd76cc-0d3c-401c-a2f1-11b1cc11e94e.png)
+
+Now no matter how the face is turned, we are able to center the eyes and mouth are in roughly the same position in the image. This will make our next step a lot more accurate.
+
+## Encoding Faces
+
+It turns out that the measurements that seem obvious to us humans (like eye color) don’t really make sense to a computer looking at individual pixels in an image. Researchers have discovered that the most accurate approach is to let the computer figure out the measurements to collect itself. Deep learning does a better job than humans at figuring out which parts of a face are important to measure.
+
+The solution is to train a Deep Convolutional Neural Network (just like we did in Part 3). But instead of training the network to recognize pictures objects like we did last time, we are going to train it to generate 128 measurements for each face.
+
+The training process works by looking at 3 face images at a time:
+
+1. Load a training face image of a known person
+2. Load another picture of the same known person
+3. Load a picture of a totally different person
+
+After repeating this step millions of times for millions of images of thousands of different people, the neural network learns to reliably generate 128 measurements for each person. Any ten different pictures of the same person should give roughly the same measurements.
+
+Machine learning people call the 128 measurements of each face an embedding. The idea of reducing complicated raw data like a picture into a list of computer-generated numbers comes up a lot in machine learning (especially in language translation).
+
+This process of training a convolutional neural network to output face embeddings requires a lot of data and computer power. Even with an expensive NVidia Telsa video card, it takes about 24 hours of continuous training to get good accuracy.
+
+But once the network has been trained, it can generate measurements for any face, even ones it has never seen before! So this step only needs to be done once. So all we need to do ourselves is run our face images through their pre-trained network to get the 128 measurements for each face. Here’s the measurements for our test image:
+![image](https://user-images.githubusercontent.com/107324616/176899726-b7c5dc9d-1a17-46d4-b345-f69a3b682c81.png)
+
+## Finding the person’s name from the encoding
+
+This last step is actually the easiest step in the whole process. All we have to do is find the person in our database of known people who has the closest measurements to our test image.
+
+You can do that by using any basic machine learning classification algorithm. No fancy deep learning tricks are needed. We’ll use a simple linear SVM classifier, but lots of classification algorithms could work.
+
+All we need to do is train a classifier that can take in the measurements from a new test image and tells which known person is the closest match. Running this classifier takes milliseconds. The result of the classifier is the name of the person!
+
+### Let’s review the steps we followed:
+
+1. Encode a picture using the HOG algorithm to create a simplified version of the image. Using this simplified image, find the part of the image that most looks like a generic HOG encoding of a face.
+2. Figure out the pose of the face by finding the main landmarks in the face. Once we find those landmarks, use them to warp the image so that the eyes and mouth are centered.
+3. Pass the centered face image through a neural network that knows how to measure features of the face. Save those 128 measurements.
+4. Looking at all the faces we’ve measured in the past, see which person has the closest measurements to our face’s measurements. That’s our match!
+
+# Execution of our Program
 
 ## Required Dependencies
 
@@ -140,13 +182,11 @@ As we have imported before we can use the same face_recognition.load_image_file(
 Now that we have a list of images we can iterate through those and create a corresponding encoded list for known faces. To do this we will create a function. As earlier we will first convert it into RGB and then find its encoding using the face_encodings( ) function. Then we will append each encoding to our list. 
 Now we can simply call the function with the images list as the input arguments.
 
-
 ### Step 3: The While loop
 The while loop is created to run the webcam. But before the while loop we have to create a video capture object so that we can grab frames from the webcam. 
 1. First we will read the image from the webcam and then resize it to quarter the size. This is done to increase the speed of the system. Even though the image being used is 1/4 th of the original, we will still use the original size while displaying. Next we will convert it to RGB.
 2. Once we have the webcam frame we will find all the faces in our image. The face_locations function is used for this purpose. Later we will find the face_encodings as well.
 3.  Now we can match the current face encodings to our known faces encoding list to find the matches. We will also compute the distance. This is done to find the best match in case more than one face is detected at a time. Once we have the list of face distances we can find the minimum one, as this would be the best match. Now based on the index value we can determine the name of the person and display it on the original Image.
-
 
 ### Step 4: Marking Attendance
 Lastly we are going to add the automated attendance code. We will start by writing a function that requires only one input which is the name of the user. First we open our Attendance file which is in csv format. Then we read all the lines and iterate through each line using a for loop. Next we can split using comma ‘,’. This will allow us to get the first element which is the name of the user. If the user in the camera already has an entry in the file then nothing will happen. On the other hand if the user is new then the name of the user along with the current time stamp will be stored. We can use the datetime class in the date time package to get the current time.
