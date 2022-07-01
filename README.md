@@ -99,6 +99,15 @@ For more robust face detection, use dlib’s MMOD CNN face detector. This model 
 
 Furthermore, if you have access to a GPU, you can run dlib’s MMOD CNN face detector on it, resulting in real-time face detection speed. The MMOD CNN face detector combined with a GPU is a match made in heaven — you get both the accuracy of a deep neural network along with the speed of a less computationally expensive model.
 
+## Implication Steps
+
+1. First, look at a picture and find all the faces in it
+2. Second, focus on each face and be able to understand that even if a face is turned in a weird direction or in bad lighting, it is still the same person.
+3. Third, be able to pick out unique features of the face that you can use to tell it apart from other people— like how big the eyes are, how long the face is, etc.
+4. Finally, compare the unique features of that face to all the people you already know to determine the person’s name.
+
+
+
 
 
 
