@@ -193,7 +193,7 @@ Lastly we are going to add the automated attendance code. We will start by writi
 
 ## Results Obtained
 
-[Dataset Used for training](https://drive.google.com/open?id=1MoqRPI1BS-DZQkRhYRitLiCI6iJTYacL)
+[Dataset Used for training](https://drive.google.com/drive/folders/1xpB9mu4q1BvStdgBRuG6lYV_9l54hnnn?usp=sharing)
 
 https://drive.google.com/open?id=1Pr9jMLD-2BYENbe_t-2btUgb9G2cYe-O
 
