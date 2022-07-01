@@ -59,7 +59,8 @@ The architecture of a ConvNet is analogous to that of the connectivity pattern o
 
 ![image](https://user-images.githubusercontent.com/107324616/176891095-c2a65c87-1d85-445c-8d7e-da74a28b0fda.png)
 
-A ConvNet is able to successfully capture the Spatial and Temporal dependencies in an image through the application of relevant filters.  The role of the ConvNet is to reduce the images into a form which is easier to process, without losing features which are critical for getting a good prediction.
+A ConvNet is able to successfully capture the Spatial and Temporal dependencies in an image through the application of relevant filters. The role of the ConvNet is to reduce the images into a form which is easier to process, without losing features which are critical for getting a good prediction.The different layers of a CNN. There are four types of layers for a convolutional neural network: **the convolutional layer, the pooling layer, the ReLU correction layer and the fully-connected layer**.
+
 
 ![image](https://user-images.githubusercontent.com/107324616/176891756-d1abbaed-d8b4-418d-951d-adbe570b40ba.png)
 
