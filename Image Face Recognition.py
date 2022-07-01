@@ -18,7 +18,7 @@ import cv2
 import numpy as np
 import face_recognition
 
-imgReal = face_recognition.load_image_file('C:/Users/Shivam/Desktop/My Files/My Files/Shivam2.jpg')
+imgReal = face_recognition.load_image_file('C:/Users/Shivam/Desktop/My Files/Shivam2.jpg')
 imgReal = cv2.cvtColor(imgReal,cv2.COLOR_BGR2RGB)
 
 imgTest = face_recognition.load_image_file('C:/Users/Shivam/Desktop/My Files/My Files/1363056845618.jpg')
