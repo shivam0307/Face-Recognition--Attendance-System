@@ -197,7 +197,7 @@ Lastly we are going to add the automated attendance code. We will start by writi
 2. [Face recognition with OpenCV, Python, and deep learning, by Adrian Rosebrock](https://pyimagesearch.com/2018/06/18/face-recognition-with-opencv-python-and-deep-learning/)
 3. [Face detection with dlib (HOG and CNN), by Adrian Rosebrock](https://pyimagesearch.com/2021/04/19/face-detection-with-dlib-hog-and-cnn/)
 4. [A Comprehensive Guide to Convolutional Neural Networks — the ELI5 way, by Sumit Saha](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
-5. [A Face Recognition Library using Convolutional Neural Networks, Paperwork by Leonardo Blanger (URI University, Erechim - Brazil) and Alison R. Panisson ( Pontifical University of Rio Grande do Sul, Porto Alegre - Brazil)
+5. A Face Recognition Library using Convolutional Neural Networks, Paperwork by Leonardo Blanger (URI University, Erechim - Brazil) and Alison R. Panisson ( Pontifical University of Rio Grande do Sul, Porto Alegre - Brazil)
 6. [An improved face recognition algorithm and its application in attendance management system, by Serign Modou Bah and Fang Ming](https://www.sciencedirect.com/science/article/pii/S2590005619300141#!)
 
 
